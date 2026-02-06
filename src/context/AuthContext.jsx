@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             const { token } = response.data;
             if (token) {
             setToken(token);
-            return { success: true };
+            return { success: true, token: token };
             }
         } catch (error) {
             let errorMsg = "Credenciales incorrectas o error de servidor";

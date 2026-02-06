@@ -13,12 +13,23 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const redirectUrl = urlParams.get('redirect');
+
+
     e.preventDefault();
     setError('');
     setIsSubmitting(true);
     const result = await login(username, password);
     if (result.success) {
-      navigate('/users');
+        if (redirectUrl) {
+            // Append token as a query param to the redirect destination
+            const target = new URL(redirectUrl);
+            target.searchParams.set('token', result.token);
+            window.location.href = target.toString();
+        } else {
+            navigate('/users');
+        }
     } else {
       setError(result.message);
     }
