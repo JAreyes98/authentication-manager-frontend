@@ -2,7 +2,16 @@
 
 A powerful, centralized **Identity Provider (IdP)** hub built with **React + Vite**. This application is designed to be the administrative core of a microservices architecture, managing everything from user identities to API inventories and security credentials.
 
+---
 
+## 🚀 Live Demo
+**URL:** [https://authentication-manager-frontend.onrender.com](https://authentication-manager-frontend.onrender.com)
+
+### Test Credentials
+* **Username:** `admin`
+* **Password:** `1234`
+
+---
 
 ## 🌐 Ecosystem Integration
 
@@ -33,8 +42,6 @@ You can integrate this dashboard into your [API Gateway](https://github.com/JAre
 2.  **Redirect:** The user is sent to this Dashboard's login page.
 3.  **Authenticate:** After successful login via the [Auth Service](https://github.com/JAreyes98/auth-service.git), the session is processed.
 4.  **Callback:** The dashboard redirects the user back to their original `HOME_URL` with a valid session token.
-
-
 
 ---
 
