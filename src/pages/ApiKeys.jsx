@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Key, Plus, Search, Trash2, Loader2, X, AlertTriangle, Check, Shield, Wand2 } from 'lucide-react';
-import apiKeyService from '../services/apiKeyService';
+import apiKeyService from '../services/apikeyService';
 // Option: If uuid fails, use: const uuidv4 = () => window.crypto.randomUUID();
 import { v4 as uuidv4 } from 'uuid'; 
 
