@@ -1,24 +1,7 @@
-import axios from 'axios';
+import api from '../api/axiosConfig';
 
-const getUsers = async () => {
-  const token = localStorage.getItem('token');
-  return axios.get('/api/v1/auth/list/users', {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-};
+const getApiKeys = () => api.get('/api/v1/auth/list/apikeys');
+const createApiKey = (keyData) => api.post('/api/v1/auth/register/app', keyData);
+const deleteApiKey = (id) => api.delete(`/api/v1/auth/app/${id}`);
 
-const createUser = async (userData) => {
-  const token = localStorage.getItem('token');
-  return axios.post('/api/v1/auth/register/user', userData, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-};
-
-const deleteUser = async (id) => {
-  const token = localStorage.getItem('token');
-  return axios.delete(`/api/v1/auth/user/${id}`, {
-    headers: { Authorization: `Bearer ${token}` }
-  });
-};
-
-export default { getUsers, createUser, deleteUser };
+export default { getApiKeys, createApiKey, deleteApiKey };

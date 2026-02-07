@@ -19,14 +19,22 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
+      setLoading(true);
       const response = await userService.getUsers();
-      setUsers(response.data);
+      
+      if (Array.isArray(response.data)) {
+        setUsers(response.data);
+      } else {
+        console.error("API did not return an array. Check if you are receiving HTML instead.");
+        setUsers([]);
+      }
     } catch (error) {
       console.error("Error fetching users", error);
+      setUsers([]); 
     } finally {
       setLoading(false);
     }
-  };
+};
 
   const confirmDelete = async () => {
     try {
